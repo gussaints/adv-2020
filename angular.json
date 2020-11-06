@@ -119,6 +119,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "foxcode"
+    }
+  },
+  "defaultProject": "foxcode",
+  "cli": {
+    "analytics": false
+  }
 }
