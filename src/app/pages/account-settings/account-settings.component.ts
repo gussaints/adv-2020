@@ -1,12 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'app-theming',
-  templateUrl: './theming.component.html',
+  selector: 'app-account-settings',
+  templateUrl: './account-settings.component.html',
   styles: [
   ]
 })
-export class ThemingComponent implements OnInit {
+export class AccountSettingsComponent implements OnInit {
 
   linkTheme = document.querySelector('#theme');
   links: NodeListOf<Element>;
