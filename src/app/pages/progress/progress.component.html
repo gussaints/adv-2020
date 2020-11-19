@@ -1,1 +1,29 @@
-<p>progress works!</p>
+<div class="row">
+    <div class="col-3" *ngFor="let item of misValores; let i = index">
+        <div class="card">
+            <div class="card-body">
+                <h4 class="card-title">Striped Progress bar {{ i + 1 }}</h4>
+                <div class="progress m-t-20">
+                    <div
+                        class="progress progress-bar-striped active"
+                        [ngClass]="'bg-' + misClases[i]"
+                        style="height:14px;" role="progressbar"
+                        [style.width]="getPorcentaje(item)"
+                        >
+                        {{ getPorcentaje(item) }}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-3" *ngFor="let item of misValores; let i = index">
+        <div class="card">
+            <div class="card-body">
+                <app-incrementador
+                    [valor]="item"
+                    (valorSalida)="misValores[i] = $event"
+                    [btnClass]="'btn btn-' + misClases[i]"></app-incrementador>
+            </div>
+        </div>
+    </div>
+</div>

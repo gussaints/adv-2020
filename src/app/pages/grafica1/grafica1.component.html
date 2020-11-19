@@ -1,1 +1,35 @@
-<p>grafica1 works!</p>
+<div class="row">
+    <div class="col-6">
+        <app-dona>
+        </app-dona>
+    </div>
+    <div class="col-6">
+        <app-dona
+            title="2nd quarter"
+            [labels]="doughnutChartLabels"
+            [data]="doughnutChartData2"
+            [chartType]="doughnutChartType"
+            [colors]="colors">
+        </app-dona>
+    </div>
+</div>
+<div class="row">
+    <div class="col-6">
+        <app-dona
+            title="3rd quarter"
+            [labels]="doughnutChartLabels"
+            [data]="doughnutChartData3"
+            [chartType]="doughnutChartType"
+            [colors]="colors">
+        </app-dona>
+    </div>
+    <div class="col-6">
+        <app-dona
+            title="4th quarter"
+            [labels]="doughnutChartLabels"
+            [data]="doughnutChartData4"
+            [chartType]="doughnutChartType"
+            [colors]="colors">
+        </app-dona>
+    </div>
+</div>
