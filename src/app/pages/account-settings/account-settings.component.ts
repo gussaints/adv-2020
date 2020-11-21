@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
+import { SettingsService } from "../../services/service.index";
+
 @Component({
   selector: 'app-account-settings',
   templateUrl: './account-settings.component.html',
@@ -8,34 +10,21 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AccountSettingsComponent implements OnInit {
 
-  linkTheme = document.querySelector('#theme');
   links: NodeListOf<Element>;
 
-  constructor() { }
+  constructor(
+    private settingsSrvc: SettingsService
+  ) { }
 
   ngOnInit(): void {
     this.links = document.querySelectorAll('.selector');
-    this.checkCurrentTheme();
+    this.settingsSrvc.checkCurrentTheme( this.links );
   }
 
   public changeTheme(current: string) {
-    const url = `./assets/css/colors/${ current }.css`;
-    this.linkTheme.setAttribute('href', url);
-    localStorage.setItem('theme', url);
-    this.checkCurrentTheme();
+    this.settingsSrvc.changeTheme( current );
+    this.settingsSrvc.checkCurrentTheme( this.links );
   }
 
-  public checkCurrentTheme() { 
-    this.links.forEach(elem => {
-      const btnTheme = elem.getAttribute('data-theme');
-      const btnThemeUrl = `./assets/css/colors/${ btnTheme }.css`;
-      const currentTheme = this.linkTheme.getAttribute('href');
-      elem.classList.remove('working');
-
-      if ( btnThemeUrl === currentTheme ) {
-        elem.classList.add('working');
-      }
-    });
-  }
 
 }
