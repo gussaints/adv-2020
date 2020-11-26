@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-
 import { SettingsService } from "../../services/service.index";
+
+declare function customInitFunctions( );
 
 @Component({
   selector: 'app-theming',
@@ -14,7 +15,9 @@ export class ThemingComponent implements OnInit {
 
   constructor(
     private settingsSrvc: SettingsService
-  ) { }
+  ) {
+    // customInitFunctions( );
+  }
 
   ngOnInit(): void {
     this.links = document.querySelectorAll('.selector');
